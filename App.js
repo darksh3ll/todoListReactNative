@@ -29,8 +29,15 @@ export default class App extends React.Component {
         const indexOfTodo = currentTodo.indexOf(todo);
         currentTodo.splice(indexOfTodo, 1);
         this.setState({todos: currentTodo})
-        console.log(this.state.todoEnd);
     };
+
+    deleteEndTodos = (todo) => {
+        let currentEndTodo = this.state.todoEnd
+        const indexOfTodo = currentEndTodo.indexOf(todo)
+        currentEndTodo.splice(indexOfTodo,1)
+        this.setState({todoEnd:currentEndTodo})
+    };
+
     revertTodo = (todoend) => {
         let todoEnd = todoend
         let currentTodoEnd = this.state.todoEnd
@@ -46,7 +53,7 @@ export default class App extends React.Component {
     };
 
 
-    // affiche les todos terminé
+    // Affiche les todos terminés
     displayEndTodos = () => {
         this.setState({on: !this.state.on});
     };
@@ -81,8 +88,7 @@ export default class App extends React.Component {
                 <View style={{flexDirection: "row", justifyContent: "center", alignItems: "center"}}>
                     <Button
                         onPress={this.displayEndTodos}
-
-                        title={this.state.on?"Masquer les tâches achevées":"Afficher les tâches achevées"}
+                        title={this.state.on ? "Masquer les tâches achevées" : "Afficher les tâches achevées"}
                         accessibilityLabel="Learn more about this purple button"
                     />
                     <Badge
@@ -99,9 +105,9 @@ export default class App extends React.Component {
                             <DisplayEndTodos
                                 key={index}
                                 todoEnd={todo}
+                                deleteTodo={() =>this.deleteEndTodos(todo)}
                                 displayEndTodos={this.displayEndTodos}
                                 lengthArrTodos={this.state.todoEnd.length}
-
                                 revert={() => this.revertTodo(todo)}
                             />
                         )
