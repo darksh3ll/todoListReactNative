@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, Button} from 'react-native';
+import {Icon} from "react-native-elements"
 
 class DisplayEndTodos extends Component {
     render() {
@@ -13,12 +14,22 @@ class DisplayEndTodos extends Component {
                     }}>{this.props.todoEnd}</Text>
                 </View>
 
-                <View style={{flex: 1}}>
-                    <Button
+
+                <View >
+                    <Icon
+                        size={30}
                         onPress={(todo) => this.props.revert(todo)}
-                        title="Revenir"
-                        color="#841584"
-                        accessibilityLabel="Learn more about this purple button"
+                        name='undo'
+                        color='#00aced'
+                    />
+                </View>
+
+                <View style={{marginLeft:50}} >
+                    <Icon
+                        size={30}
+                        onPress={(todo) => this.props.deleteTodo(todo)}
+                        name='delete'
+                        color='#00aced'
                     />
                 </View>
             </View>
