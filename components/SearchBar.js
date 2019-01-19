@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {View, TextInput, Button} from 'react-native'
 import {Badge} from 'react-native-elements';
+import {Icon} from "react-native-elements"
+
 
 class SearchBar extends Component {
 
@@ -16,10 +18,11 @@ class SearchBar extends Component {
 
                 />
                 <View/>
-                <View style={{flexDirection: "row", justifyContent: "center", alignItems: "center"}}>
-                    <Button
-                        title="Ajouter une tâche"
-                        accessibilityLabel="Learn more about this purple button"
+                <View style={{flexDirection: "row", justifyContent: "center", alignItems: "center",paddingTop:10}}>
+                    <Icon
+                        size={64}
+                        name='add'
+                        color='#00aced'
                         onPress={this.props.add}
                     />
 

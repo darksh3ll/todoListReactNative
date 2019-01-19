@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Text, View, Button} from 'react-native';
+import {Icon} from "react-native-elements";
 
 class DisplayTodos extends Component {
 
@@ -11,13 +12,14 @@ class DisplayTodos extends Component {
                     <Text>{this.props.todo}</Text>
                 </View>
 
-                <View style={{flex:1}}>
-                    <Button
+                <View>
+                    <Icon
+                        size={30}
                         onPress={(todo) => this.props.delete(todo)}
-                        title="Supprimer"
-                        color="#841584"
-                        accessibilityLabel="Learn more about this purple button"
+                        name='delete'
+                        color='#00aced'
                     />
+
                 </View>
             </View>
         );
